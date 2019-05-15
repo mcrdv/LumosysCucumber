@@ -1,6 +1,7 @@
 package LumosysTestCucumber;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,6 +21,7 @@ public class LumosysStepDefinitions {
 	@Given("^I have opened the Lumosys site$")
 	public void I_have_opened_the_Lumosys_site() {
 		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		driver.get("https://www.lumosystem.com:8083/");
 	}
 	@When ("^I Login with an exist user$")
@@ -37,8 +39,6 @@ public class LumosysStepDefinitions {
 	Assert.assertTrue(MenuList.size()>1);
 	
 	}
-	
-	
-	
+		
 
 }
